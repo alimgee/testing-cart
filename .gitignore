@@ -1,0 +1,11 @@
+venv/
+cart/__pycache__/
+.vscode/
+ecommerce/__pycache__/
+main/__pycache__/
+users/__pycache__/
+users/migrations/
+products/__pycache__/
+main/migrations/
+products/migrations/
+cart/migrations/

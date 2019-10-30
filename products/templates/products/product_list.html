@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+ <h1> products page</h1>
+{% for product in products %}
+Name: {{ product.name }}<br>
+Des: {{ product.description }}<br>
+Price: {{ product.price }}<br>
+
+<img class="rounded-circle article-img" src="{{ product.image.url }}"><br>
+<!--form to add to cart - action link will be changed to point to cart-->
+{% url 'add_to_cart' product.id %}
+<form method="post" action="{% url 'add_to_cart' product.id %}">
+    {% csrf_token %}
+    <div class="input-group">
+        <input name="quantity" type="number" min="1" max="999" class="form-control" placeholder="Quantity">
+        <span class="input-group-btn">
+            <button class="btn btn-success" type="submit">Add</button>
+        </span>
+    </div>
+</form>
+<br><br>
+{% endfor %}
+{% endblock content %}

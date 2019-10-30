@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %} <!--to load in crispy form -->
+
+{% block content %}
+<h1>Login page</h1>
+{% if user.is_authenticated %}
+<h1>You are already logged in</h1>
+{% endif %}
+<form method="POST">
+    {% csrf_token %}
+    <fieldset class="form-group">
+        <legend class="border-bottom mb-4">Join Today</legend>
+        {{ form|crispy }}
+    </fieldset>
+    <div class="form-group">
+        <button class="btn btn-outline-info" type="submit">Log In</button>
+    </div>
+</form>
+
+{% endblock %}
